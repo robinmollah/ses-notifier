@@ -1,39 +1,41 @@
 module.exports = class SesParamBuilder{
-	baseParam = {
-		Destination: { /* required */
-			CcAddresses: [
+
+	constructor(fromEmail, toEmail) {
+		this.baseParam = {
+			Destination: { /* required */
+				CcAddresses: [
+					// 'EMAIL_ADDRESS',
+					/* more items */
+				],
+				ToAddresses: [
+					// 'EMAIL_ADDRESS',
+					/* more items */
+				]
+			},
+			Message: { /* required */
+				Body: { /* required */
+					Html: {
+						Charset: "UTF-8",
+						Data: "No body set"
+					},
+					Text: {
+						Charset: "UTF-8",
+						Data: "No body set"
+					}
+				},
+				Subject: {
+					Charset: 'UTF-8',
+					Data: 'Email subject is not set'
+				}
+			},
+			Source: 'dummy@eagle3dstreaming.com', /* required */
+			ReplyToAddresses: [
 				// 'EMAIL_ADDRESS',
 				/* more items */
 			],
-			ToAddresses: [
-				// 'EMAIL_ADDRESS',
-				/* more items */
-			]
-		},
-		Message: { /* required */
-			Body: { /* required */
-				Html: {
-					Charset: "UTF-8",
-					Data: "No body set"
-				},
-				Text: {
-					Charset: "UTF-8",
-					Data: "No body set"
-				}
-			},
-			Subject: {
-				Charset: 'UTF-8',
-				Data: 'Email subject is not set'
-			}
-		},
-		Source: 'dummy@eagle3dstreaming.com', /* required */
-		ReplyToAddresses: [
-			// 'EMAIL_ADDRESS',
-			/* more items */
-		],
-	};
+		};
 
-	constructor(fromEmail, toEmail) {
+
 		this.baseParam.Destination.ToAddresses.push(toEmail);
 		this.baseParam.Source = fromEmail;
 	}

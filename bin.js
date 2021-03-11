@@ -1,8 +1,8 @@
 const express = require('express')
-const PrepareForm = require('./PrepareForm');
+const PrepareForm = require('./src/mail/PrepareForm');
 const app = express()
-const mail = require('./mail.js');
-const SesParamBuilder = require("./SesParamBuilder");
+const mail = require('./src/mail/mail.js');
+const SesParamBuilder = require("./src/mail/SesParamBuilder");
 const port = 1010
 
 app.use(express.json());
