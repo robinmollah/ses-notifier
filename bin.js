@@ -17,6 +17,9 @@ app.post('/api/mail/', (req, res) => {
 	console.log("BODY", req.body);
 	let mailParam = new SesParamBuilder('website@eagle3dstreaming.com', 'business@eagle3dstreaming.com')
 		.addDestinationEmail('robinsajin@gmail.com')
+		.addDestinationEmail('valerie@eagle3dstreaming.com')
+		.addDestinationEmail('quintin@eagle3dstreaming.com')
+		.addDestinationEmail('jay@seagullcompany.com')
 		.setMessage(PrepareForm(req.body))
 		.setSubject("New form submitted in our main website")
 		.build();

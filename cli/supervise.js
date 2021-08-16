@@ -34,15 +34,21 @@ let shouldNotify = true;
 const MailConfig = (state = "") => {
 	return new SesParamBuilder('hawk@eagle3dstreaming.com', 'robin@eagle3dstreaming.com')
 		.addDestinationEmail('robinsajin@gmail.com')
-		.addDestinationEmail("business@eagle3dstreaming.com")
-		.setMessage(`TEST<b>Hello Engineer,</b><br/>We have found the server (${argv.server}:${argv.port}) is down.` +
+		.addDestinationEmail('ahsan@eagle3dstreaming.com')
+		.addDestinationEmail('robin@eagle3dstreaming.com')
+		//.addDestinationEmail('kunal@eagle3dstreaming.com')
+		.addDestinationEmail('jay@seagullcompany.com')
+		.addDestinationEmail('quintin@eagle3dstreaming.com')
+		.addDestinationEmail('valerie@eagle3dstreaming.com')
+		//.addDestinationEmail("business@eagle3dstreaming.com")
+		.setMessage(`<b>Hello Engineer,</b><br/>We have found the server (${argv.server}) is down.` +
 		`<br/>Regards,<br/>Hawk<br/>Server Supervisor<br/>Eagle3dStreaming Inc.<br/><br/>${JSON.stringify(state)}`)
-		.setSubject(`SERVER DOWN | ${argv.server}:${argv.port}`)
+		.setSubject(`SERVER DOWN | ${argv.server}`)
 		.build();
 }
 
 myMonitor.on('up', function (res, state) {
-	console.log('+', res, state);
+	console.log('+');
 });
 
 
